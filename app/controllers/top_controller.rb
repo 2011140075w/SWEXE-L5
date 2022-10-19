@@ -22,7 +22,9 @@ class TopController < ApplicationController
   end
   
   def signin
-    user = User.new(uid: params[:uid], pass: BCrypt::Password.create(params[:pass]))
+    user = User.new(uid: params[:uid], 
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
     if user.save
       session[:login_uid] = params[:uid] 
       redirect_to root_path

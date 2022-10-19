@@ -21,7 +21,7 @@ class TweetsController < ApplicationController
   private
   
   def login
-    @user = User.find_by(uid: session[:login_uid]) if session[:login_uid]
+    @user = current_user
     
     redirect_to root_path if @user.nil?
   end

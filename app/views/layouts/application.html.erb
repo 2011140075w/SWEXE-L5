@@ -14,7 +14,7 @@
     
     <div>
       <% if session[:login_uid] %>
-        <%= "ログイン中のUID: " + session[:login_uid] %>
+        <%= "ログイン中のUID: " + current_user.uid %>
         <%= button_to 'ログアウト', top_logout_path, method: :post %>
       <% end %>
     </div>
